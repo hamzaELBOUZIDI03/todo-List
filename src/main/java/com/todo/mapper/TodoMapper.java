@@ -14,31 +14,13 @@ public interface TodoMapper {
 
     TodoMapper INSTANCE = Mappers.getMapper(TodoMapper.class);
 
-   /* @Mapping(target = "id" , source = "id")
-    @Mapping(target = "task" , source = "task")
-    @Mapping(target = "date" , source = "date")
-    @Mapping(target = "done" , source = "done")*/
     TodoDto convertToDto(TodoEntity entity);
 
-   /* @Mapping(target = "id" , source = "id")
-    @Mapping(target = "task" , source = "task")
-    @Mapping(target = "date" , source = "date")
-    @Mapping(target = "done" , source = "done")*/
     TodoEntity toEntity(TodoDto dto);
 
-   /* @Mapping(target = "id" , source = "id")
-    @Mapping(target = "task" , source = "task")
-    @Mapping(target = "date" , source = "date")
-    @Mapping(target = "done" , source = "done")*/
     List<TodoDto> convertToDTOS(List<TodoEntity> entities);
 
-    /*@Mapping(target = "id" , source = "id")
-    @Mapping(target = "task" , source = "task")
-    @Mapping(target = "date" , source = "date")
-    @Mapping(target = "done" , source = "done")*/
     List<TodoEntity> toEntities(List<TodoDto> dtos);
-
-    //ptional<TodoDto> convertToDto2(Integer id);
 
     default Optional<TodoDto> convertToDto2(Optional<TodoEntity> todo) {
         return todo.map(this::convertToDto);
